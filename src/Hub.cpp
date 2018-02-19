@@ -177,7 +177,7 @@ void Hub::connect(std::string uri, void *user, std::map<std::string, std::string
                                      "Host: " + hostname + ":" + std::to_string(port) + "\r\n"
                                      "Sec-WebSocket-Version: 13\r\n";
 
-            if(extraHeaders.size())
+            if(!extraHeaders.empty())
                 for (std::pair<std::string, std::string> header : extraHeaders) {
                      httpSocket->httpBuffer += header.first + ": " + header.second + "\r\n";
                 }
